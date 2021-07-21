@@ -1,11 +1,11 @@
 # IECSE-App-Summer-21
 Welcome to the IECSE App Summer Bootcamp 2021!
-This repository contains all the resources and solutions to the tasks provided during the summer project
+This repository contains all the resources and solutions to the tasks provided during the summer project.
 
 ## Instructions - 
-* We will be using GitHub to accept and upload all your solutions to the tasks in the summer project
+* We will be using [GitHub](https://github.com/prakharb10/IECSE-App-Summer-21/wiki/Introduction-to-Git-&-Github) to accept and upload all your solutions to the tasks in the summer project
 * You will be creating your own branch to upload your solutions for the project
-    * Create your own branch using the the command - `git checkout -b <branch-name>` and the `branch-name` should be in the format : `<first-name>-<last-name>`. For example: `git checkout -b Akash-Agrawal`, here the `-b` tag is used to create a new branch.
+    * Create your own branch using the the command - `git checkout -b <branch-name>` and the `branch-name` should be in the format : `<first-name>-<last-name>`. For example: `git checkout -b Akash-Agarwal`, here the `-b` tag is used to create a new branch.
 * All commits should be made to your _own branch_. **Do not commit to main/master branch**. To prevent this always check what branch you're on before committing any changes, the command to check current branch git branch and/or command to checkout(change to) a branch, `git checkout <branch-name>`.
 * Follow these steps to submit your solutions - 
     * Add all unstaged files using the command `git add .`. The `.` here means that all the files in the current directory will be staged/added to be committed.
@@ -20,13 +20,13 @@ This repository contains all the resources and solutions to the tasks provided d
 
 * An example of how this will look :   
 ```Bash
-git checkout -b Akash-Agrawal
-git checkout Akash-Agrawal        //to check if you are still in your own branch
+git checkout -b Akash-Agarwal
+git checkout Akash-Agarwal        //to check if you are still in your own branch
 git add .                           //stage all the files in the directory for commit
 git commit -m "Task #00: Description"
-git push origin Akash-Agrawal     //this pushes the code to your own branch
+git push origin Akash-Agarwal     //this pushes the code to your own branch
 ```
 * All the solutions will be posted in the main branch.
 
-* All the tasks and resources for the winter project will be posted in the [Wiki](https://github.com/prakharb10/IECSE-App-Summer-21/wiki).
+* All the tasks and resources for the summer project will be posted in the [Wiki](https://github.com/prakharb10/IECSE-App-Summer-21/wiki).
 
