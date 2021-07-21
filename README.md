@@ -28,5 +28,5 @@ git push origin Akash-Agrawal     //this pushes the code to your own branch
 ```
 * All the solutions will be posted in the main branch.
 
-* All the tasks and resources for the winter project will be posted in the wiki.
+* All the tasks and resources for the winter project will be posted in the [Wiki](https://github.com/prakharb10/IECSE-App-Summer-21/wiki).
 
