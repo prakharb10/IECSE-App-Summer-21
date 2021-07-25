@@ -20,7 +20,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: changeColor,
-        body: SafeArea(
+        body: SingleChildScrollView(
           child: Container(
             width: 500.0,
             height: 600.0,
@@ -52,51 +52,56 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ),
                 Container(
+                  padding: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 10.0),
+                  margin: EdgeInsets.fromLTRB(25.0, 15.0, 25.0, 5.0),
                   color: Colors.white,
-                  margin:
-                      EdgeInsets.symmetric(vertical: 20.0, horizontal: 25.0),
-                  padding: EdgeInsets.all(20.0),
-                  child: Row(
+                  child: Column(
                     children: [
-                      Icon(
-                        Icons.phone,
-                        color: changeColor,
-                      ),
-                      SizedBox(
-                        width: 25.0,
-                      ),
-                      Text(
-                        '2347 4668 7555',
-                        style: TextStyle(
-                          color: changeColor,
-                          fontFamily: 'NewsCycle',
-                          fontSize: 20.0,
+                      TextField(
+                        decoration: InputDecoration(
+                          icon: Icon(
+                            Icons.phone,
+                            color: changeColor,
+                          ),
+                          hintText: "enter your phone number",
+                          hintStyle: TextStyle(
+                            fontSize: 20.0,
+                            fontFamily: 'NewsCycle',
+                            color: changeColor,
+                            decoration: TextDecoration.none,
+                          ),
+                          border: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                          enabledBorder: InputBorder.none,
                         ),
                       ),
                     ],
                   ),
                 ),
                 Container(
+                  padding: EdgeInsets.fromLTRB(10.0, 5.0, 10.0, 5.0),
+                  margin: EdgeInsets.fromLTRB(25.0, 5.0, 25.0, 15.0),
                   color: Colors.white,
-                  margin: EdgeInsets.fromLTRB(25.0, 5.0, 25.0, 25.0),
-                  padding: EdgeInsets.all(20.0),
-                  child: Row(
+                  child: Column(
                     children: [
-                      Icon(
-                        Icons.email,
-                        color: changeColor,
-                      ),
-                      SizedBox(
-                        width: 15.0,
-                      ),
-                      Text(
-                        'aayushpatney@email.com',
-                        style: TextStyle(
-                          color: changeColor,
-                          fontFamily: 'NewsCycle',
-                          fontSize: 15.0,
+                      TextField(
+                        decoration: InputDecoration(
+                          icon: Icon(
+                            Icons.email,
+                            color: changeColor,
+                          ),
+                          hintText: "enter your email id",
+                          hintStyle: TextStyle(
+                            fontSize: 20.0,
+                            fontFamily: 'NewsCycle',
+                            color: changeColor,
+                            decoration: TextDecoration.none,
+                          ),
+                          border: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                          enabledBorder: InputBorder.none,
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
