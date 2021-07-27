@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() => runApp(ProfileApp());
+  SharedPreferences ?localStorage;
+ TextEditingController emailController = new TextEditingController();
+ TextEditingController phoneController = new TextEditingController();
 
 class ProfileApp extends StatelessWidget {
+  static Future init() async{
+    localStorage =await SharedPreferences.getInstance();
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'IECSE Profile Page',
+      title: 'iecse profile page',
       home: ProfilePage(),
     );
   }
@@ -17,10 +24,8 @@ class ProfilePage extends StatefulWidget {
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
-
 class _ProfilePageState extends State<ProfilePage> {
-  Color _appColor = Colors.purpleAccent;
-
+  Color _appColor = Colors.black;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,44 +63,75 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
             ),
             SizedBox(height: 20.0),
-               Padding(
-          padding: EdgeInsets.symmetric(horizontal: 25, vertical: 16),
-          child: TextFormField(
-            decoration: InputDecoration(
-               prefixIcon: Icon(Icons.phone_android,color:_appColor,),
-               filled: true,
-	             fillColor: Colors.white,
-              border: OutlineInputBorder(), 
-              labelText: 'Enter your phone number',
-              labelStyle:TextStyle(color:_appColor)
-            ),
-          ),
-        ),
-            // _infoTile(icon: Icons.phone_android, title: '+91 9632587412'),
-            // _infoTile(icon: Icons.mail, title: 'Example@gmail.com'),
-             Padding(
-          padding: EdgeInsets.symmetric(horizontal: 25, vertical: 16),
-          child: TextFormField(
-            decoration: InputDecoration(
-               prefixIcon: Icon(Icons.email,color:_appColor,),
-               filled: true,
-	             fillColor: Colors.white,
-              border: OutlineInputBorder(), 
-              labelText: 'Enter your gmail',
-              labelStyle:TextStyle(color:_appColor)
-            ),
-          ),
-        ),
+               Container(
+                 
+                 child: Column(
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                   children: <Widget>[
+                     Text('Email id:',
+                     style: TextStyle(
+                       fontWeight: FontWeight.bold,fontSize: 15.0,),
+                     ),
+                     SizedBox(height: 10,),
+                     TextField(
+                       controller: emailController,
+                       obscureText: false,
+                       decoration: InputDecoration(
+                 prefixIcon: Icon(Icons.mail,color:_appColor,),
+                 filled: true,
+                              fillColor: Colors.white,
+                             border: OutlineInputBorder(), 
+                             labelText: 'Enter your email ',
+                             labelStyle:TextStyle(color:_appColor)
+                           ),
+                       ),
+                   ],
+                 ),
+               ),
+             Container(
+                 margin: EdgeInsets.symmetric(vertical:2.0),
+                 child: Column(
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                   children: <Widget>[
+                     Text('phone:',
+                     style: TextStyle(
+                       fontWeight: FontWeight.bold,fontSize: 15.0,),
+                     ),
+                     SizedBox(height: 10,),
+                     TextField(
+                       controller: phoneController,
+                       obscureText: false,
+                       decoration: InputDecoration(
+                 prefixIcon: Icon(Icons.phone_android,color:_appColor,),
+                 filled: true,
+                              fillColor: Colors.white,
+                             border: OutlineInputBorder(), 
+                             labelText: 'Enter your phone number ',
+                             labelStyle:TextStyle(color:_appColor)
+                           ),
+                       ),
+                   ],
+                 ),
+               ),
             SizedBox(height: 10.0),
-            Row(  
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
+            RaisedButton(
+              onPressed: save,
+              child: Text('login'),
+            ),
+            if(localStorage!=null)
+            Padding(padding: EdgeInsets.all(15.0),
+            child: Text("user logged in!! -> Email id:${localStorage!.get('email')} phone:${localStorage!.get('phone')} ",style: TextStyle(fontSize: 15.0,color:Colors.white),),),
+          
+            Wrap( 
               children: <Widget>[
-                
-                _colorButton(Colors.black),
+                _colorButton(Colors.blueGrey),
                 _colorButton(Colors.deepOrange),
                 _colorButton(Colors.green),
                 _colorButton(Colors.cyan),
+                _colorButton(Colors.pink),
+                _colorButton(Colors.purpleAccent),
+                _colorButton(Colors.red),
+                _colorButton(Colors.brown),
                
               ],
             ),
@@ -124,4 +160,9 @@ class _ProfilePageState extends State<ProfilePage> {
       _appColor = color;
     });
   }
+}
+save() async{
+  await ProfileApp.init();
+  localStorage!.setString('email', emailController.text.toString());
+  localStorage!.setString('phone', phoneController.text.toString());
 }
