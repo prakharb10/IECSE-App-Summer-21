@@ -3,10 +3,19 @@ import 'package:image_picker/image_picker.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "My Profile App",
-      home: Home()));
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: "My Profile App",
+        home: Home());
+  }
 }
 
 class Home extends StatefulWidget {
@@ -35,37 +44,6 @@ class _HomeState extends State<Home> {
     final imgfile =
         await picker.pickImage(source: ImageSource.gallery, maxWidth: 600);
     return imgfile;
-  }
-
-  popup(String item, BuildContext context) {
-    TextEditingController myController = TextEditingController();
-    return showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text("Enter Value"),
-            content: TextField(
-              controller: myController,
-            ),
-            actions: <Widget>[
-              MaterialButton(
-                  elevation: 5,
-                  child: Text("Submit"),
-                  onPressed: () {
-                    setState(() {
-                      if (item == 'name')
-                        this.name = myController.text;
-                      else if (item == 'about')
-                        this.about = myController.text;
-                      else if (item == 'email')
-                        this.email = myController.text;
-                      else if (item == 'phoneno')
-                        this.phoneno = myController.text;
-                    });
-                  })
-            ],
-          );
-        });
   }
 
   imagepopup(BuildContext context) {
@@ -119,7 +97,38 @@ class _HomeState extends State<Home> {
                   ),
                   Expanded(
                     child: TextButton(
-                      onPressed: popup("name", context),
+                      onPressed: () async {
+                        TextEditingController myController =
+                            TextEditingController();
+                        String item = 'name';
+                        await showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                title: Text("Enter Value"),
+                                content: TextField(
+                                  controller: myController,
+                                ),
+                                actions: <Widget>[
+                                  MaterialButton(
+                                      elevation: 5,
+                                      child: Text("Submit"),
+                                      onPressed: () {
+                                        setState(() {
+                                          if (item == 'name')
+                                            this.name = myController.text;
+                                          else if (item == 'about')
+                                            this.about = myController.text;
+                                          else if (item == 'email')
+                                            this.email = myController.text;
+                                          else if (item == 'phoneno')
+                                            this.phoneno = myController.text;
+                                        });
+                                      })
+                                ],
+                              );
+                            });
+                      },
                       child: Text(
                         name,
                         textDirection: TextDirection.ltr,
@@ -134,7 +143,38 @@ class _HomeState extends State<Home> {
                   ),
                   Expanded(
                     child: TextButton(
-                      onPressed: popup("about", context),
+                      onPressed: () async {
+                        TextEditingController myController =
+                            TextEditingController();
+                        String item = 'about';
+                        await showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                title: Text("Enter Value"),
+                                content: TextField(
+                                  controller: myController,
+                                ),
+                                actions: <Widget>[
+                                  MaterialButton(
+                                      elevation: 5,
+                                      child: Text("Submit"),
+                                      onPressed: () {
+                                        setState(() {
+                                          if (item == 'name')
+                                            this.name = myController.text;
+                                          else if (item == 'about')
+                                            this.about = myController.text;
+                                          else if (item == 'email')
+                                            this.email = myController.text;
+                                          else if (item == 'phoneno')
+                                            this.phoneno = myController.text;
+                                        });
+                                      })
+                                ],
+                              );
+                            });
+                      },
                       child: Text(
                         about.toUpperCase(),
                         textDirection: TextDirection.ltr,
@@ -153,7 +193,41 @@ class _HomeState extends State<Home> {
                           leading: Icon(Icons.phone_android_outlined,
                               size: 30, color: bgcolor),
                           title: TextButton(
-                            onPressed: popup("phoneno", context),
+                            onPressed: () async {
+                              TextEditingController myController =
+                                  TextEditingController();
+                              String item = 'phoneno';
+                              await showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                      title: Text("Enter Value"),
+                                      content: TextField(
+                                        controller: myController,
+                                      ),
+                                      actions: <Widget>[
+                                        MaterialButton(
+                                            elevation: 5,
+                                            child: Text("Submit"),
+                                            onPressed: () {
+                                              setState(() {
+                                                if (item == 'name')
+                                                  this.name = myController.text;
+                                                else if (item == 'about')
+                                                  this.about =
+                                                      myController.text;
+                                                else if (item == 'email')
+                                                  this.email =
+                                                      myController.text;
+                                                else if (item == 'phoneno')
+                                                  this.phoneno =
+                                                      myController.text;
+                                              });
+                                            })
+                                      ],
+                                    );
+                                  });
+                            },
                             child: Text(
                               phoneno,
                               style: TextStyle(
@@ -169,7 +243,41 @@ class _HomeState extends State<Home> {
                       child: ListTile(
                           leading: Icon(Icons.email, size: 30, color: bgcolor),
                           title: TextButton(
-                            onPressed: popup("email", context),
+                            onPressed: () async {
+                              TextEditingController myController =
+                                  TextEditingController();
+                              String item = 'email';
+                              await showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                      title: Text("Enter Value"),
+                                      content: TextField(
+                                        controller: myController,
+                                      ),
+                                      actions: <Widget>[
+                                        MaterialButton(
+                                            elevation: 5,
+                                            child: Text("Submit"),
+                                            onPressed: () {
+                                              setState(() {
+                                                if (item == 'name')
+                                                  this.name = myController.text;
+                                                else if (item == 'about')
+                                                  this.about =
+                                                      myController.text;
+                                                else if (item == 'email')
+                                                  this.email =
+                                                      myController.text;
+                                                else if (item == 'phoneno')
+                                                  this.phoneno =
+                                                      myController.text;
+                                              });
+                                            })
+                                      ],
+                                    );
+                                  });
+                            },
                             child: Text(
                               email,
                               style: TextStyle(
